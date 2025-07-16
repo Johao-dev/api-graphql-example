@@ -1,0 +1,24 @@
+type Account {
+    id: String,
+    creationDate: String,
+    balance: Float,
+    badge: String,
+    accountType: String
+}
+
+input AccountRequest {
+    balance: Float,
+    badge: String,
+    accountType: String
+}
+
+type Query {
+    listAccounts: [Account]
+    getAccountById(id: String): Account
+}
+
+type Mutation {
+    addAccount(account: AccountRequest): Account
+    updateAccount(id: String, account: AccountRequest): Account
+    deleteAccount(id: String): String
+}
